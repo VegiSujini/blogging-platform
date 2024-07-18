@@ -1,13 +1,16 @@
 package com.blogging.blogging_platform.entity;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import org.hibernate.annotations.CreationTimestamp;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class Post {
@@ -19,6 +22,9 @@ public class Post {
     private String author;
     @CreationTimestamp
     private LocalDateTime createdDate;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    List<Comment> comments;
 
     public Long getId() {
         return id;
@@ -60,4 +66,13 @@ public class Post {
         this.createdDate = createdDate;
     }
 
+    public List<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
+    }
+
+    
 }
