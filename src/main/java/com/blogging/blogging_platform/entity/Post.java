@@ -12,7 +12,6 @@ import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.CreationTimestamp;
 
-
 @Entity
 public class Post {
     @Id
@@ -75,5 +74,4 @@ public class Post {
         this.comments = comments;
     }
 
-    
 }

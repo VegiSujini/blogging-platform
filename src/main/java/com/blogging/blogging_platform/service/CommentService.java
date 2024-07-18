@@ -1,7 +1,5 @@
 package com.blogging.blogging_platform.service;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,7 +15,7 @@ public class CommentService {
         return commentRepository.save(comment);
     }
 
-    public List<Comment> getComments() {
-        return commentRepository.findAll();
+    public Comment getCommentsById(Long id) {
+        return commentRepository.findById(id).get();
     }
 }

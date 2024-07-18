@@ -12,31 +12,31 @@ import com.blogging.blogging_platform.repository.PostRepository;
 public class PostService {
     @Autowired
     private PostRepository postRepository;
-
-    public Post savePost(Post post) {
+    
+    public Post savePost(Post post){
         return postRepository.save(post);
     }
 
-    public List<Post> getPost() {
+    public List<Post> getPost(){
         return postRepository.findAll();
     }
 
-    public Post getPostById(Long id) {
+    public Post getPostById(Long id){
         return postRepository.findById(id).get();
     }
 
-    public Post updatePostById(Long id, Post post) {
-        Post findPost = postRepository.findById(id).get();
-        if (findPost != null) {
-            findPost.setId(id);
-            findPost.setTitle(post.getTitle());
-            findPost.setAuthor(post.getAuthor());
-        }
+    public Post updatePostById(Post post){
+        Post findPost = postRepository.findById(post.getId()).get();
+        findPost.setTitle(post.getTitle());
+        findPost.setContent(post.getContent());
+        findPost.setAuthor(post.getAuthor());
+        findPost.setComments(post.getComments());
         return postRepository.save(findPost);
     }
 
-    public void deletePostById(Long id) {
+    public void deletePostById(Long id){
         postRepository.deleteById(id);
     }
+
 
 }
