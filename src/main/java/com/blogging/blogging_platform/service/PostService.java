@@ -1,7 +1,6 @@
 package com.blogging.blogging_platform.service;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,22 +12,22 @@ import com.blogging.blogging_platform.repository.PostRepository;
 public class PostService {
     @Autowired
     private PostRepository postRepository;
-    
-    public Post savePost(Post post){
+
+    public Post savePost(Post post) {
         return postRepository.save(post);
     }
 
-    public List<Post> getPost(){
+    public List<Post> getPost() {
         return postRepository.findAll();
     }
 
-    public Post getPostById(Long id){
+    public Post getPostById(Long id) {
         return postRepository.findById(id).get();
     }
 
-    public Post updatePostById(Long id,Post post){
+    public Post updatePostById(Long id, Post post) {
         Post findPost = postRepository.findById(id).get();
-        if(findPost!=null){
+        if (findPost != null) {
             findPost.setId(id);
             findPost.setTitle(post.getTitle());
             findPost.setAuthor(post.getAuthor());
@@ -36,9 +35,8 @@ public class PostService {
         return postRepository.save(findPost);
     }
 
-    public void deletePostById(Long id){
+    public void deletePostById(Long id) {
         postRepository.deleteById(id);
     }
-
 
 }
