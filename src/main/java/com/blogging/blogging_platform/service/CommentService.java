@@ -1,11 +1,11 @@
-package com.blogging.service;
+package com.blogging.blogging_platform.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.blogging.blogging_platform.entity.Comment;
-import com.blogging.repository.CommentRepository;
+import com.blogging.blogging_platform.repository.CommentRepository;
 
 @Service
 public class CommentService{

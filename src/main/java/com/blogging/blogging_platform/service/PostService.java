@@ -1,4 +1,4 @@
-package com.blogging.service;
+package com.blogging.blogging_platform.service;
 
 import java.util.List;
 import java.util.Optional;
@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.blogging.blogging_platform.entity.Post;
-import com.blogging.repository.PostRepository;
+import com.blogging.blogging_platform.repository.PostRepository;
 
 @Service
 public class PostService {
@@ -40,5 +40,5 @@ public class PostService {
         postRepository.deleteById(id);
     }
 
-    
+
 }
