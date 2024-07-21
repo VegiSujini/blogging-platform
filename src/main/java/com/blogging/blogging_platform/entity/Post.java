@@ -24,7 +24,7 @@ public class Post {
     private LocalDateTime createdDate;
 
     @OneToMany(cascade = CascadeType.ALL)
-    List<Comment> comments;
+    private List<Comment> comments;
 
     public Long getId() {
         return id;

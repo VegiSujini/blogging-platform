@@ -1,5 +1,7 @@
 package com.blogging.blogging_platform.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,12 +18,12 @@ public class CommentController {
     private CommentService commentService;
 
     @PostMapping("/posts/{id}/comments")
-    public Comment createComment(@RequestBody Comment comment) {
-        return commentService.saveComment(comment);
+    public Comment addComment(@RequestBody Comment comment,@PathVariable Long id) {
+        return commentService.saveComment(id,comment);
     }
 
     @GetMapping("/posts/{id}/comments")
-    public Comment getComments(@PathVariable Long id) {
+    public List<Comment> getComments(@PathVariable Long id) {
         return commentService.getCommentsById(id);
     }
 }
